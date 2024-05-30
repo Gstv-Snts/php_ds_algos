@@ -1,0 +1,16 @@
+{
+    "name": "gustavo/php_ds_algos",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Gustavo\\PhpDsAlgos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gstv-Snts",
+            "email": "gustavosantossilveira12360@gmail.com"
+        }
+    ],
+    "require": {}
+}
