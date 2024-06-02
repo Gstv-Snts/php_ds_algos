@@ -2,11 +2,11 @@
 
 namespace DataStructures;
 
-class Node
+class LinkedListNode
 {
     private $value = Null;
-    private Null|Node $next = NULL;
-    private Null|Node $previous = NULL;
+    private Null|LinkedListNode $next = NULL;
+    private Null|LinkedListNode $previous = NULL;
     public function __construct($value)
     {
         $this->value = $value;
@@ -38,8 +38,8 @@ class Node
 }
 class Linked_list
 {
-    private null|Node $head = null;
-    private null|Node $tail = null;
+    private null|LinkedListNode $head = null;
+    private null|LinkedListNode $tail = null;
     private int $length = 0;
     public function __construct()
     {
@@ -48,49 +48,49 @@ class Linked_list
     {
         return $this->length;
     }
-    public function getHead(): null|Node
+    public function getHead(): null|LinkedListNode
     {
         return $this->head;
     }
-    public function getTail(): null|Node
+    public function getTail(): null|LinkedListNode
     {
         return $this->tail;
     }
     public function insertAtHead($value): void
     {
-        $newNode = new Node($value);
+        $newLinkedListNode = new LinkedListNode($value);
         if ($this->length === 0) {
-            $this->head = $newNode;
-            $this->tail = $newNode;
+            $this->head = $newLinkedListNode;
+            $this->tail = $newLinkedListNode;
         } elseif ($this->length === 1) {
-            $newNode->setNext($this->tail);
-            $this->tail->setPrevious($newNode);
-            $this->head = $newNode;
+            $newLinkedListNode->setNext($this->tail);
+            $this->tail->setPrevious($newLinkedListNode);
+            $this->head = $newLinkedListNode;
         } else {
-            $newNode->setNext($this->head);
-            $this->head->setPrevious($newNode);
-            $this->head = $newNode;
+            $newLinkedListNode->setNext($this->head);
+            $this->head->setPrevious($newLinkedListNode);
+            $this->head = $newLinkedListNode;
         }
         $this->length += 1;
     }
     public function insertAtTail($value): void
     {
-        $newNode = new Node($value);
+        $newLinkedListNode = new LinkedListNode($value);
         if ($this->length === 0) {
-            $this->head = $newNode;
-            $this->tail = $newNode;
+            $this->head = $newLinkedListNode;
+            $this->tail = $newLinkedListNode;
         } elseif ($this->length === 1) {
-            $newNode->setPrevious($this->head);
-            $this->head->setNext($newNode);
-            $this->tail = $newNode;
+            $newLinkedListNode->setPrevious($this->head);
+            $this->head->setNext($newLinkedListNode);
+            $this->tail = $newLinkedListNode;
         } else {
-            $newNode->setPrevious($this->tail);
-            $this->tail->setNext($newNode);
-            $this->tail= $newNode;
+            $newLinkedListNode->setPrevious($this->tail);
+            $this->tail->setNext($newLinkedListNode);
+            $this->tail = $newLinkedListNode;
         }
         $this->length += 1;
     }
-    public function deleteHead(): null|Node
+    public function deleteHead(): null|LinkedListNode
     {
         if ($this->length === 1) {
             $tmp = $this->head;
@@ -112,7 +112,7 @@ class Linked_list
         }
         return null;
     }
-    public function deleteTail(): null|Node
+    public function deleteTail(): null|LinkedListNode
     {
         if ($this->length === 1) {
             $tmp = $this->head;

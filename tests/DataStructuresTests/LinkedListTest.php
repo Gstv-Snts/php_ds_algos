@@ -1,7 +1,7 @@
 <?php
 
 use DataStructures\Linked_list;
-use DataStructures\Node;
+use DataStructures\LinkedListNode;
 use PHPUnit\Framework\TestCase;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -9,20 +9,20 @@ require_once __DIR__ . '/../../src/DataStructures/LinkedList.php';
 
 class LinkedListTest extends TestCase
 {
-    public function testNode()
+    public function testLinkedListNode()
     {
         //construct
-        $n = new Node(10);
-        $this->assertSame(10, $n->getValue(), "Node value is supposed to be 10.");
+        $n = new LinkedListNode(10);
+        $this->assertSame(10, $n->getValue(), "LinkedListNode value is supposed to be 10.");
         //setNext
-        $n->setNext(new Node(20));
+        $n->setNext(new LinkedListNode(20));
         //setPrevious
-        $n->setPrevious(new Node(30));
-        $this->assertIsObject($n->getNext(), "Node next is supposed to be an Object.");
-        $this->assertIsObject($n->getPrevious(), "Node previous is supposed to be an Object.");
+        $n->setPrevious(new LinkedListNode(30));
+        $this->assertIsObject($n->getNext(), "LinkedListNode next is supposed to be an Object.");
+        $this->assertIsObject($n->getPrevious(), "LinkedListNode previous is supposed to be an Object.");
         //setValue
         $n->setValue(5);
-        $this->assertSame(5, $n->getValue(), "Node value is supposed to be 5.");
+        $this->assertSame(5, $n->getValue(), "LinkedListNode value is supposed to be 5.");
     }
     public function testLinkedList()
     {
